@@ -1,0 +1,24 @@
+app:
+  metadata: 
+    name: node-app-1
+    # namespace: test
+  spec:
+    replicas: 1
+  container: 
+    image: saeedxdev/node-app-1
+    tag: "v2"
+    # digest: ""
+    port: 8080 
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+    averageUtilization: 50
+     
+
+    
+    #consider as a two same application. app1 is a dev version and app2 is a prod version
+    #now instead of two different yaml file we are just changing the configuration base on some criteria
+    #port no. is unchange as it is two same application.
+    
